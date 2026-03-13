@@ -1,7 +1,0 @@
-Metadata-Version: 2.4
-Name: dbsof-server
-Version: 0.1.0
-Summary: Lightweight Flask backend for the dbsof UI template
-Requires-Python: >=3.10
-Requires-Dist: flask>=3.0.0
-Requires-Dist: flask-cors>=4.0.0
