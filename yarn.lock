@@ -163,6 +163,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@dbsof/auth@workspace:*, @dbsof/auth@workspace:shared/auth":
+  version: 0.0.0-use.local
+  resolution: "@dbsof/auth@workspace:shared/auth"
+  languageName: unknown
+  linkType: soft
+
 "@dbsof/code-editor@workspace:*, @dbsof/code-editor@workspace:shared/codeEditor":
   version: 0.0.0-use.local
   resolution: "@dbsof/code-editor@workspace:shared/codeEditor"
@@ -2182,6 +2188,7 @@ __metadata:
   resolution: "dbsof-web@workspace:web"
   dependencies:
     "@axe-core/react": ^4.6.0
+    "@dbsof/auth": "workspace:*"
     "@dbsof/code-editor": "workspace:*"
     "@dbsof/common": "workspace:*"
     "@dbsof/platform": "workspace:*"
