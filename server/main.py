@@ -2,6 +2,8 @@ from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel, Field
 from enum import Enum
 
+import schemas
+
 app = FastAPI(title="Bookstore API", version="1.0.0")
 
 
