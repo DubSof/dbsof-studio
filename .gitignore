@@ -1,14 +1,15 @@
+.vscode/
+.DS_Store
+
+__pycache__/
+
 node_modules
+*.lock
 
 yarn-error.log
-
 /.yarn/*
 !/.yarn/releases
 !/.yarn/plugins
 
-.env*.local
-
 .env
-.vscode/
-.DS_Store
-*.lock
+.env*.local
