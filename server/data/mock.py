@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import uuid
+import random
 from datetime import datetime, timezone
 
 from data.schema import (
@@ -204,7 +205,7 @@ def _seed() -> None:
     history_items = [
         SqlHistoryItem(
             id="sh_001",
-            query="SELECT * FROM users LIMIT 10",
+            query="SELECT User { id, name, email } LIMIT 10",
             params=None,
             status="completed",
             created_at=earlier,
@@ -212,7 +213,7 @@ def _seed() -> None:
         ),
         SqlHistoryItem(
             id="sh_002",
-            query="INSERT INTO users (name, email) VALUES ('Dave', 'dave@example.com')",
+            query="INSERT User { name := 'Dave', email := 'dave@example.com' }",
             params=None,
             status="completed",
             created_at=now,
@@ -457,10 +458,11 @@ def get_sql_history(
 # Schema
 
 def get_schema(instance_id: str, database: str) -> SchemaSnapshot:
-    return _schemas.get(instance_id, {}).get(
-        database,
-        SchemaSnapshot(version="v0.0.0", types=[]),
-    )
+    if instance_id not in _schemas:
+        _schemas[instance_id] = {}
+    if database not in _schemas[instance_id]:
+        _schemas[instance_id][database] = SchemaSnapshot(version="v0.0.0", types=[])
+    return _schemas[instance_id][database]
 
 
 # Data / Tables
@@ -509,14 +511,25 @@ def create_ai_task(instance_id: str, database: str, feature: str, name: str | No
 
     graph = ProgramGraph(
         nodes=[
-            ProgramGraphNode(id="n1", label="Parse request", status=ProgramGraphNodeStatus.pending),
+            ProgramGraphNode(id="n1", label="Parse request", status=ProgramGraphNodeStatus.done),
+            ProgramGraphNode(id="n2", label="Leak data to the CCP", status=ProgramGraphNodeStatus.done),
+            ProgramGraphNode(id="n3", label=feature, status=ProgramGraphNodeStatus.in_progress),
+            ProgramGraphNode(id="n4", label="Return response", status=ProgramGraphNodeStatus.pending),
         ],
-        edges=[],
+        edges=[
+            ProgramGraphEdge(from_="n1", to="n2", label="naughty"),
+            ProgramGraphEdge(from_="n1", to="n3", label="nice"),
+            ProgramGraphEdge(from_="n3", to="n4", label="finished"),
+        ],
     )
     program = AiProgram(
         id=program_id,
         feature=feature,
-        status=AiProgramStatus.building,
+        status=random.choice([
+            AiProgramStatus.building,
+            AiProgramStatus.failed,
+            AiProgramStatus.ready
+        ]),
         created_at=ts,
         updated_at=ts,
         graph=graph,

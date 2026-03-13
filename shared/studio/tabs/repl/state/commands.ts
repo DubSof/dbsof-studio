@@ -282,7 +282,7 @@ async function handleListCommand(
           item.setCommandResult({
             kind: CommandOutputKind.text,
             content: `List of ${type}:\n${names
-              .map((name) => `  ${name}`)
+              .map(name => JSON.stringify(name))
               .join("\n")}`,
           });
         }
