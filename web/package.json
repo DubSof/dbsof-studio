@@ -2,6 +2,11 @@
   "name": "dbsof-web",
   "version": "0.1.0",
   "private": true,
+  "workspaces": {
+    "packages": [
+      "./shared/*"
+    ]
+  },
   "type": "module",
   "scripts": {
     "localdev-config": "echo 'Provide your own backend configuration command here'",
