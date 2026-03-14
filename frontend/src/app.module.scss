@@ -1,5 +1,5 @@
-@import "@dbsof/common/styles.scss";
-@import "@dbsof/common/mixins.scss";
+@use "@dbsof/common/styles.scss" as *;
+@use "@dbsof/common/mixins.scss" as *;
 
 .app {
   position: relative;

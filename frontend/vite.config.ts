@@ -27,6 +27,11 @@ export default defineConfig({
     keepNames: true,
   },
   css: {
+    preprocessorOptions: {
+      scss: {
+        api: "modern-compiler",
+      },
+    },
     modules: {
       generateScopedName(name, filename) {
         return genericNames("[name]_[local]__[hash:base64:5]")(

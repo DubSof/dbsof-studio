@@ -1,5 +1,5 @@
+@use "../common/mixins.scss" as *;
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap");
-@import "../common/mixins.scss";
 
 .codeEditor {
   display: contents;

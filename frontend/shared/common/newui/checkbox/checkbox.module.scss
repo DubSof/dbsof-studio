@@ -1,5 +1,5 @@
 @use "@sass-fairy/url";
-@import "@dbsof/common/mixins.scss";
+@use "@dbsof/common/mixins.scss" as *;
 
 .checkbox {
   display: flex;

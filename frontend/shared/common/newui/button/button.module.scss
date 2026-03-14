@@ -1,4 +1,4 @@
-@import "@dbsof/common/mixins.scss";
+@use "@dbsof/common/mixins.scss" as *;
 
 .button,
 .linkButton {

@@ -1,4 +1,4 @@
-@import "@dbsof/common/mixins";
+@use "@dbsof/common/mixins" as *;
 
 .loginPage {
   display: flex;
