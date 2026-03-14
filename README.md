@@ -11,8 +11,8 @@ components.
 
 This repo is organised using Yarn workspaces as follows:
 
-- `/web`: The main UI shell that wires together routing, state management, and
-  shared components. See <./web/readme.md> for build and development steps.
+- `/frontend`: The main UI shell that wires together routing, state management, and
+  shared components. See <./frontend/readme.md> for build and development steps.
 - `/shared`: Shared component packages, including the graph dependency
   visualiser, terminal, schema graph, inspector, and editor integrations that
   can be reused across different studio deployments.
