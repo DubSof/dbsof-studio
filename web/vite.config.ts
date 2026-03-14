@@ -16,7 +16,7 @@ export default defineConfig({
   build: {outDir: "build"},
   resolve: {
     alias: {
-      "@dbsof/auth": path.resolve(__dirname, "../shared/auth"),
+      "@dbsof/auth": path.resolve(__dirname, "shared/auth"),
     },
   },
   optimizeDeps: {

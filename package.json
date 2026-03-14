@@ -4,7 +4,7 @@
   "workspaces": {
     "packages": [
       "web",
-      "shared/*"
+      "web/shared/*"
     ]
   }
 }
