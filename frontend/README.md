@@ -3,30 +3,14 @@
 This package contains the browser shell for the DBSOF UI. It connects to a Flask
 backend server running on `http://localhost:5757` for database operations.
 
-## Development
+## Getting started
 
-> **Prerequisites**: You will need to have Yarn 2+ installed, and have run the
-> `yarn install` command at the repo root to install the workspace dependencies.
-
-To start the UI dev server:
+Start the UI `http://localhost:3002/ui`:
 
 ```sh
+yarn install
 yarn dev
 ```
-
-The app is served at `http://localhost:3002/ui`.
-
-**Note**: The UI requires the Flask backend server to be running. Start it from
-the `server` directory:
-
-```sh
-cd ../server
-python -m dbsof_server.app
-# or
-dbsof-server
-```
-
-The Flask backend runs on `http://localhost:5757` by default.
 
 ## UI Tests
 

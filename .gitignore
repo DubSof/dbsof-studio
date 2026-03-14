@@ -3,9 +3,13 @@
 .DS_Store
 *.lock
 
+# /server
 __pycache__/
 .venv/
 
+# /frontend
 node_modules/
 build/
 .yarn/
+playwright-report/
+test-results/
